@@ -48,6 +48,7 @@ const familyData = {
     { id: 50, name: "Mohammad Sayyed", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
     { id: 51, name: "Zirwa Fitwalla", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
     { id: 52, name: "Jibrael Fitwalla", gender: "male", dob: "2019-01-01", deceased: false, photo: null },
+    { id: 87, name: "Noem Siddiqui", gender: "male", dob: "2025-01-01", deceased: false, photo: null },
 
     // Amatul-Salam's children
     { id: 26, name: "Kaikashah Siddique", gender: "female", dob: "1990-01-01", deceased: false, photo: null },
@@ -110,17 +111,21 @@ const familyData = {
     { id: 43, name: "Shees Fitwalla", gender: "male", dob: "2008-01-01", deceased: false, photo: null },
 
     // Generation 5 - Amatul Basit (child of Ibrahim & Fatima)
-    { id: 77, name: "Amatul Basit", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
-    { id: 78, name: "Abdul Rashid", gender: "male", dob: "1975-01-01", deceased: false, photo: null },
+    { id: 77, name: "Amatul Basit Ansari", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
+    { id: 78, name: "Abdul Rashid Ansari", gender: "male", dob: "1975-01-01", deceased: false, photo: null },
 
     // Generation 6 - Children of Amatul Basit & Abdul Rashid
-    { id: 79, name: "Souvaid", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 80, name: "Shanyaal", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 81, name: "Tasneem", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 82, name: "Tasneem Partner", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 83, name: "Nishat", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
-    { id: 84, name: "Nishat Partner", gender: "male", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 85, name: "Owaise", gender: "male", dob: "2006-01-01", deceased: false, photo: null }
+    { id: 79, name: "Souvaid Ansari", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 80, name: "Shanyaal Ansari", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
+    { id: 81, name: "Tasneem Ansari", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
+    { id: 82, name: "Partner of Tasneem", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 83, name: "Nishat Ansari", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
+    { id: 84, name: "Partner of Nishat", gender: "male", dob: "2002-01-01", deceased: false, photo: null },
+    { id: 85, name: "Owais Ansari", gender: "male", dob: "2006-01-01", deceased: false, photo: null },
+
+    // Ishaque Fitwalla Grandchildren
+    { id: 86, name: "Adeen Fitwalla", gender: "female", dob: "2024-11-13", deceased: false, photo: null },
+
   ],
 
   couples: [
@@ -153,7 +158,7 @@ const familyData = {
     { id: "c28", person1: 79, person2: 80, married: true }, // Souvaid & Shanyaal
     { id: "c29", person1: 81, person2: 82, married: true }, // Tasneem & partner
     { id: "c30", person1: 83, person2: 84, married: true }, // Nishat & partner
-    { id: "c31", person1: 85, person2: null, married: false } // Owaise (single)
+    { id: "c31", person1: 85, person2: null, married: false } // Owais (single)
   ],
 
   families: [
@@ -168,7 +173,7 @@ const familyData = {
     { parentCouple: "c6", children: [26, 27, 28, 29] },
     { parentCouple: "c17", children: [57] }, // Kaikashah's kids
     { parentCouple: "c18", children: [58, 59] }, // Shagufta's kids
-    { parentCouple: "c20", children: [60, 61, 62] }, // Abdul-Wadood's kids
+    { parentCouple: "c20", children: [60, 61, 62, 87] }, // Abdul-Wadood's kids
     { parentCouple: "c7", children: [30, 31] }, // Amatul-nafe's kids
     { parentCouple: "c21", children: [65, 66, 67, 68] }, // Saudah's kids
     { parentCouple: "c8", children: [32, 33, 34, 35] }, // Amatul-Waasay's kids
@@ -179,6 +184,7 @@ const familyData = {
     { parentCouple: "c9", children: [36] }, // Ishaque's kids
     { parentCouple: "c10", children: [38, 39, 40] }, // Ilyas's kids
     { parentCouple: "c11", children: [41, 42, 43] }, // Idrees's kids
-    { parentCouple: "c27", children: [79, 81, 83, 85] } // Amatul Basit's kids
+    { parentCouple: "c27", children: [79, 81, 83, 85] }, // Amatul Basit's kids
+    { parentCouple: "c13", children: [86] } // Ishaque Fitwalla's Grandchildren
   ]
 };

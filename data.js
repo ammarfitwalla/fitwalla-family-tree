@@ -107,7 +107,20 @@ const familyData = {
     // Idrees's children
     { id: 41, name: "Juana Fitwalla", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
     { id: 42, name: "Tarfiya Fitwalla", gender: "male", dob: "2006-01-01", deceased: false, photo: null },
-    { id: 43, name: "Shees Fitwalla", gender: "male", dob: "2008-01-01", deceased: false, photo: null }
+    { id: 43, name: "Shees Fitwalla", gender: "male", dob: "2008-01-01", deceased: false, photo: null },
+
+    // Generation 5 - Amatul Basit (child of Ibrahim & Fatima)
+    { id: 77, name: "Amatul Basit", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
+    { id: 78, name: "Abdul Rashid", gender: "male", dob: "1975-01-01", deceased: false, photo: null },
+
+    // Generation 6 - Children of Amatul Basit & Abdul Rashid
+    { id: 79, name: "Souvaid", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 80, name: "Shanyaal", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
+    { id: 81, name: "Tasneem", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
+    { id: 82, name: "Tasneem Partner", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 83, name: "Nishat", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
+    { id: 84, name: "Nishat Partner", gender: "male", dob: "2002-01-01", deceased: false, photo: null },
+    { id: 85, name: "Owaise", gender: "male", dob: "2006-01-01", deceased: false, photo: null }
   ],
 
   couples: [
@@ -135,14 +148,19 @@ const familyData = {
     { id: "c23", person1: 32, person2: 69, married: true }, // Atif
     { id: "c24", person1: 33, person2: 70, married: true }, // Owais
     { id: "c25", person1: 34, person2: 71, married: true }, // Muaz
-    { id: "c26", person1: 35, person2: 72, married: true }  // Maria
+    { id: "c26", person1: 35, person2: 72, married: true }, // Maria
+    { id: "c27", person1: 78, person2: 77, married: true }, // Abdul Rashid & Amatul Basit
+    { id: "c28", person1: 79, person2: 80, married: true }, // Souvaid & Shanyaal
+    { id: "c29", person1: 81, person2: 82, married: true }, // Tasneem & partner
+    { id: "c30", person1: 83, person2: 84, married: true }, // Nishat & partner
+    { id: "c31", person1: 85, person2: null, married: false } // Owaise (single)
   ],
 
   families: [
     { parentCouple: "c1", children: [3] },
     { parentCouple: "c2", children: [5] },
     { parentCouple: "c3", children: [7] },
-    { parentCouple: "c4", children: [9, 11, 13, 15, 17, 19, 21] },
+    { parentCouple: "c4", children: [9, 11, 13, 15, 17, 19, 21, 77] },
     { parentCouple: "c5", children: [23, 24, 25] }, // Ismail's kids
     { parentCouple: "c15", children: [46, 47, 48] }, // Moiz's kids
     { parentCouple: "c12", children: [49, 50] },    // Amatul-Bar's kids
@@ -160,6 +178,7 @@ const familyData = {
     { parentCouple: "c26", children: [76] }, // Maria's kids
     { parentCouple: "c9", children: [36] }, // Ishaque's kids
     { parentCouple: "c10", children: [38, 39, 40] }, // Ilyas's kids
-    { parentCouple: "c11", children: [41, 42, 43] } // Idrees's kids
+    { parentCouple: "c11", children: [41, 42, 43] }, // Idrees's kids
+    { parentCouple: "c27", children: [79, 81, 83, 85] } // Amatul Basit's kids
   ]
 };

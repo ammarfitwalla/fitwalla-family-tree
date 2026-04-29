@@ -96,12 +96,12 @@ function drawCards() {
     card.style.top = pos.y + 'px';
     card.dataset.id = person.id;
 
-    const firstName = person.name.split(' ')[0];
+    const fullName = person.name;
     card.innerHTML = `
-      <div class="card-avatar">${getInitials(person.name)}</div>
-      <div class="card-name">${firstName}</div>
+      <div class="card-avatar">${getInitials(fullName)}</div>
+      <div class="card-name">${fullName}</div>
       <div class="card-age">${getAge(person.dob)}y</div>
-      ${person.deceased ? `<div class="deceased-badge">✦ Late ${firstName}</div>` : ''}
+      ${person.deceased ? `<div class="deceased-badge">✦ Late ${fullName}</div>` : ''}
     `;
 
     card.addEventListener('click', () => openPanel(person.id));
@@ -256,7 +256,7 @@ function openPanel(id) {
 function makeChip(person) {
   const chip = document.createElement('span');
   chip.className = `panel-relation-chip ${person.gender}`;
-  chip.innerHTML = `<span class="chip-dot"></span>${person.name.split(' ')[0]} <span style="opacity:0.6;font-size:0.72rem">${getAge(person.dob)}y</span>`;
+  chip.innerHTML = `<span class="chip-dot"></span>${person.name} <span style="opacity:0.6;font-size:0.72rem">${getAge(person.dob)}y</span>`;
   chip.addEventListener('click', () => openPanel(person.id));
   return chip;
 }

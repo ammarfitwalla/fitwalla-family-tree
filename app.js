@@ -104,7 +104,10 @@ function drawCards() {
       ${person.deceased ? `<div class="deceased-badge">✦ Late ${fullName}</div>` : ''}
     `;
 
-    card.addEventListener('click', () => openPanel(person.id));
+    card.addEventListener('click', (e) => {
+      if (hasDragged) return;
+      openPanel(person.id);
+    });
     canvas.appendChild(card);
     allCardEls[person.id] = card;
   }
@@ -112,7 +115,7 @@ function drawCards() {
 
 // ── Pan & Zoom ──
 
-let isPanning = false, startX, startY, startPanX, startPanY;
+let isPanning = false, startX, startY, startPanX, startPanY, hasDragged = false;
 
 function applyTransform() {
   canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
@@ -137,36 +140,41 @@ document.getElementById('zoom-reset').addEventListener('click', fitToScreen);
 
 // Mouse pan
 wrap.addEventListener('mousedown', e => {
-  if (e.target.closest('.person-card')) return;
   isPanning = true;
+  hasDragged = false;
   startX = e.clientX; startY = e.clientY;
   startPanX = panX; startPanY = panY;
   wrap.classList.add('grabbing');
 });
 window.addEventListener('mousemove', e => {
   if (!isPanning) return;
+  if (Math.hypot(e.clientX - startX, e.clientY - startY) > 5) hasDragged = true;
   panX = startPanX + (e.clientX - startX);
   panY = startPanY + (e.clientY - startY);
   applyTransform();
 });
-window.addEventListener('mouseup', () => { isPanning = false; wrap.classList.remove('grabbing'); });
+window.addEventListener('mouseup', () => { isPanning = false; wrap.classList.remove('grabbing'); setTimeout(() => hasDragged = false, 50); });
 
 // Touch pan & pinch zoom
 let lastTouchDist = null;
 wrap.addEventListener('touchstart', e => {
-  if (e.touches.length === 1 && !e.target.closest('.person-card')) {
+  if (e.touches.length === 1) {
     isPanning = true;
+    hasDragged = false;
     startX = e.touches[0].clientX; startY = e.touches[0].clientY;
     startPanX = panX; startPanY = panY;
   }
   if (e.touches.length === 2) {
     isPanning = false;
+    hasDragged = true;
     lastTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
   }
-}, { passive: true });
+}, { passive: false });
 
 wrap.addEventListener('touchmove', e => {
+  if (e.cancelable) e.preventDefault(); // Prevents native pull-to-refresh and scroll
   if (e.touches.length === 1 && isPanning) {
+    if (Math.hypot(e.touches[0].clientX - startX, e.touches[0].clientY - startY) > 5) hasDragged = true;
     panX = startPanX + (e.touches[0].clientX - startX);
     panY = startPanY + (e.touches[0].clientY - startY);
     applyTransform();
@@ -177,9 +185,9 @@ wrap.addEventListener('touchmove', e => {
     lastTouchDist = dist;
     applyTransform();
   }
-}, { passive: true });
+}, { passive: false });
 
-wrap.addEventListener('touchend', () => { isPanning = false; lastTouchDist = null; });
+wrap.addEventListener('touchend', () => { isPanning = false; lastTouchDist = null; setTimeout(() => hasDragged = false, 50); });
 
 // Wheel zoom (centered on cursor)
 wrap.addEventListener('wheel', e => {

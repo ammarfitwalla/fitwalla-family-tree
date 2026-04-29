@@ -27,94 +27,76 @@ const familyData = {
     { id: 16, name: "Faheem Shaikh", gender: "male", dob: "1972-01-01", deceased: false, photo: null },
     { id: 17, name: "Ishaque Fitwalla", gender: "male", dob: "1976-01-01", deceased: false, photo: null },
     { id: 18, name: "Shakeela Fitwalla", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
+    { id: 77, name: "Amatul Basit Ansari", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
+    { id: 78, name: "Abdul Rashid Ansari", gender: "male", dob: "1975-01-01", deceased: false, photo: null },
     { id: 19, name: "Ilyas Fitwalla", gender: "male", dob: "1978-05-01", deceased: false, photo: null },
     { id: 20, name: "Farzana Fitwalla", gender: "female", dob: "1980-01-01", deceased: false, photo: null },
     { id: 21, name: "Idrees Fitwalla", gender: "male", dob: "1980-05-01", deceased: false, photo: null },
     { id: 22, name: "Umaira Fitwalla", gender: "female", dob: "1982-01-01", deceased: false, photo: null },
 
-    // Generation 6 - Grandchildren
-    // Ismail's children
-    { id: 23, name: "Moiz Fitwalla", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
-    { id: 24, name: "Ovaimir Fitwalla", gender: "male", dob: "1994-01-01", deceased: false, photo: null },
-    { id: 25, name: "Amatul-Bar Sayyed", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
-    { id: 44, name: "Parvez Sayyed", gender: "male", dob: "1993-01-01", deceased: false, photo: null },
-    { id: 45, name: "Saima Fitwalla", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
+    // Generation 6 & 7 - Grouped by Families
 
-    // Generation 7
+    // --- Family of Ismail Fitwalla ---
+    { id: 23, name: "Moiz Fitwalla", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
     { id: 46, name: "Amrah", gender: "female", dob: "2015-01-01", deceased: false, photo: null },
     { id: 47, name: "Jozi", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
     { id: 48, name: "Kafshah", gender: "female", dob: "2019-01-01", deceased: false, photo: null },
-    { id: 49, name: "Kinza Sayyed", gender: "female", dob: "2016-01-01", deceased: false, photo: null },
-    { id: 50, name: "Mohammad Sayyed", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
+    { id: 24, name: "Ovaimir Fitwalla", gender: "male", dob: "1994-01-01", deceased: false, photo: null },
+    { id: 45, name: "Saima Fitwalla", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
     { id: 51, name: "Zirwa Fitwalla", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
     { id: 52, name: "Jibrael Fitwalla", gender: "male", dob: "2019-01-01", deceased: false, photo: null },
-    { id: 87, name: "Noem Siddiqui", gender: "male", dob: "2025-01-01", deceased: false, photo: null },
+    { id: 25, name: "Amatul-Bar Sayyed", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
+    { id: 44, name: "Parvez Sayyed", gender: "male", dob: "1993-01-01", deceased: false, photo: null },
+    { id: 49, name: "Kinza Sayyed", gender: "female", dob: "2016-01-01", deceased: false, photo: null },
+    { id: 50, name: "Mohammad Sayyed", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
 
-    // Amatul-Salam's children
+    // --- Family of Amatul-Salam Siddique ---
     { id: 26, name: "Kaikashah Siddique", gender: "female", dob: "1990-01-01", deceased: false, photo: null },
-    { id: 27, name: "Shagufta Siddique", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
-    { id: 28, name: "Bushra Siddique", gender: "female", dob: "1994-01-01", deceased: false, photo: null },
-    { id: 29, name: "Abdul-Wadood Siddique", gender: "male", dob: "1996-01-01", deceased: false, photo: null },
     { id: 53, name: "Partner of Kaikashah", gender: "male", dob: "1988-01-01", deceased: false, photo: null },
-    { id: 54, name: "Partner of Shagufta", gender: "male", dob: "1990-01-01", deceased: false, photo: null },
-    { id: 55, name: "Partner of Bushra", gender: "male", dob: "1992-01-01", deceased: false, photo: null },
-    { id: 56, name: "Mariyam Siddique", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
-
-    // Generation 7 - Amatul-Salam's Grandchildren
     { id: 57, name: "Child of Kaikashah", gender: "female", dob: "2015-01-01", deceased: false, photo: null },
+    { id: 27, name: "Shagufta Siddique", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
+    { id: 54, name: "Partner of Shagufta", gender: "male", dob: "1990-01-01", deceased: false, photo: null },
     { id: 58, name: "Natalia Siddique", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
     { id: 59, name: "Areeb Siddique", gender: "male", dob: "2019-01-01", deceased: false, photo: null },
+    { id: 28, name: "Bushra Siddique", gender: "female", dob: "1994-01-01", deceased: false, photo: null },
+    { id: 55, name: "Partner of Bushra", gender: "male", dob: "1992-01-01", deceased: false, photo: null },
+    { id: 29, name: "Abdul-Wadood Siddique", gender: "male", dob: "1996-01-01", deceased: false, photo: null },
+    { id: 56, name: "Mariyam Siddique", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
     { id: 60, name: "Ishaal Siddique", gender: "female", dob: "2018-01-01", deceased: false, photo: null },
     { id: 61, name: "Minaal Siddique", gender: "female", dob: "2020-01-01", deceased: false, photo: null },
     { id: 62, name: "Fariyaal Siddique", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 87, name: "Noem Siddiqui", gender: "male", dob: "2025-01-01", deceased: false, photo: null },
 
-    // Amatul-Kafi's children (Corrected to Amatul-nafe)
+    // --- Family of Amatul-Nafe Ansari ---
     { id: 30, name: "Saudah Ansari", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
-    { id: 31, name: "Hamza Ansari", gender: "male", dob: "1997-01-01", deceased: false, photo: null },
     { id: 63, name: "Faris Ansari", gender: "male", dob: "1993-01-01", deceased: false, photo: null },
-    { id: 64, name: "Farheen Ansari", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
-
-    // Generation 7 - Amatul-nafe's Grandchildren
     { id: 65, name: "Oodh Ansari", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
     { id: 66, name: "Daughter of Saudah", gender: "female", dob: "2020-01-01", deceased: false, photo: null },
     { id: 67, name: "Daughter of Saudah", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
     { id: 68, name: "Daughter of Faris", gender: "female", dob: "2024-01-01", deceased: false, photo: null },
+    { id: 31, name: "Hamza Ansari", gender: "male", dob: "1997-01-01", deceased: false, photo: null },
+    { id: 64, name: "Farheen Ansari", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
 
-    // Amatul-Wasay's children (Corrected to Amatul-Waasay)
+    // --- Family of Amatul-Wasay Shaikh ---
     { id: 32, name: "Atif Shaikh", gender: "male", dob: "1996-01-01", deceased: false, photo: null },
-    { id: 33, name: "Owais Shaikh", gender: "male", dob: "1998-01-01", deceased: false, photo: null },
-    { id: 34, name: "Muaz Shaikh", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 35, name: "Maria Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
     { id: 69, name: "Partner of Atif", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
-    { id: 70, name: "Partner of Owais", gender: "female", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 71, name: "Alfiya Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 72, name: "Partner of Maria", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
-
-    // Generation 7 - Amatul-Waasay's Grandchildren
     { id: 73, name: "Son of Atif", gender: "male", dob: "2020-01-01", deceased: false, photo: null },
+    { id: 33, name: "Owais Shaikh", gender: "male", dob: "1998-01-01", deceased: false, photo: null },
+    { id: 70, name: "Partner of Owais", gender: "female", dob: "2000-01-01", deceased: false, photo: null },
     { id: 74, name: "Son of Owais", gender: "male", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 34, name: "Muaz Shaikh", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 71, name: "Alfiya Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
     { id: 75, name: "Daughter of Muaz", gender: "female", dob: "2023-01-01", deceased: false, photo: null },
+    { id: 35, name: "Maria Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
+    { id: 72, name: "Partner of Maria", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
     { id: 76, name: "Son of Maria", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
 
-    // Ishaque's children
+    // --- Family of Ishaque Fitwalla ---
     { id: 36, name: "Ammar Fitwalla", gender: "male", dob: "1995-04-17", deceased: false, photo: null },
     { id: 37, name: "Samreen Fitwalla", gender: "female", dob: "1996-01-01", deceased: false, photo: null },
+    { id: 86, name: "Adeen Fitwalla", gender: "female", dob: "2024-11-13", deceased: false, photo: null },
 
-    // Ilyas's children
-    { id: 38, name: "Sahi Fitwalla", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
-    { id: 39, name: "Irtat Fitwalla", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 40, name: "Samara Fitwalla", gender: "female", dob: "2001-01-01", deceased: false, photo: null },
-
-    // Idrees's children
-    { id: 41, name: "Juana Fitwalla", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
-    { id: 42, name: "Tarfiya Fitwalla", gender: "male", dob: "2006-01-01", deceased: false, photo: null },
-    { id: 43, name: "Shees Fitwalla", gender: "male", dob: "2008-01-01", deceased: false, photo: null },
-
-    // Generation 5 - Amatul Basit (child of Ibrahim & Fatima)
-    { id: 77, name: "Amatul Basit Ansari", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
-    { id: 78, name: "Abdul Rashid Ansari", gender: "male", dob: "1975-01-01", deceased: false, photo: null },
-
-    // Generation 6 - Children of Amatul Basit & Abdul Rashid
+    // --- Family of Amatul Basit Ansari ---
     { id: 79, name: "Souvaid Ansari", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
     { id: 80, name: "Shanyaal Ansari", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
     { id: 81, name: "Tasneem Ansari", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
@@ -123,9 +105,15 @@ const familyData = {
     { id: 84, name: "Partner of Nishat", gender: "male", dob: "2002-01-01", deceased: false, photo: null },
     { id: 85, name: "Owais Ansari", gender: "male", dob: "2006-01-01", deceased: false, photo: null },
 
-    // Ishaque Fitwalla Grandchildren
-    { id: 86, name: "Adeen Fitwalla", gender: "female", dob: "2024-11-13", deceased: false, photo: null },
+    // --- Family of Ilyas Fitwalla ---
+    { id: 38, name: "Sahi Fitwalla", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
+    { id: 39, name: "Irtat Fitwalla", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 40, name: "Samara Fitwalla", gender: "female", dob: "2001-01-01", deceased: false, photo: null },
 
+    // --- Family of Idrees Fitwalla ---
+    { id: 41, name: "Juana Fitwalla", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
+    { id: 42, name: "Tarfiya Fitwalla", gender: "male", dob: "2006-01-01", deceased: false, photo: null },
+    { id: 43, name: "Shees Fitwalla", gender: "male", dob: "2008-01-01", deceased: false, photo: null }
   ],
 
   couples: [

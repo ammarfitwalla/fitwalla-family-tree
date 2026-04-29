@@ -328,5 +328,70 @@ svg#connectors {
 
 @media (max-width: 480px) {
   .legend { display: none; }
-  .header-title { font-size: 1rem; }
+
+  /* Smaller header on mobile */
+  header {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .header-title { font-size: 0.95rem; }
+
+  /* Hide zoom buttons on mobile — users pinch to zoom */
+  .zoom-controls { display: none; }
+
+  /* Search takes remaining width */
+  .search-wrap { max-width: none; }
+
+  /* Bigger touch targets on cards */
+  .person-card {
+    border-radius: 10px;
+  }
+
+  /* Panel takes full width on small screens */
+  #side-panel {
+    width: 100vw;
+  }
+
+  /* Larger close button touch target */
+  .panel-close {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+
+  /* Larger chip touch targets */
+  .panel-relation-chip {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
 }
+
+/* Floating "fit to screen" button — visible only on mobile */
+#fab-fit {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 80;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: box-shadow 0.2s;
+}
+
+#fab-fit:active {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 480px) {
+  #fab-fit { display: flex; }
+}
+

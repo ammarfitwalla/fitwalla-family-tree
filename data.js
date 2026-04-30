@@ -25,6 +25,7 @@ const familyData = {
     { id: 14, name: "Usman Ansari", gender: "male", dob: "1970-01-01", deceased: false, photo: null },
     { id: 15, name: "Amatul-Wasay Shaikh", gender: "female", dob: "1974-01-01", deceased: false, photo: null },
     { id: 16, name: "Faheem Shaikh", gender: "male", dob: "1972-01-01", deceased: false, photo: null },
+    { id: 11, name: "Amatul-Mughni Fitwalla", gender: "female", dob: "1970-06-01", deceased: false, photo: null },
     { id: 17, name: "Ishaque Fitwalla", gender: "male", dob: "1976-01-01", deceased: false, photo: null },
     { id: 18, name: "Shakeela Fitwalla", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
     { id: 77, name: "Amatul Basit Ansari", gender: "female", dob: "1978-01-01", deceased: false, photo: null },

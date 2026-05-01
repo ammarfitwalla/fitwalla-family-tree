@@ -106,6 +106,7 @@ function drawCards() {
     card.addEventListener('click', (e) => {
       if (hasDragged) return;
       openPanel(person.id);
+      centerOn(person.id);
     });
     canvas.appendChild(card);
     allCardEls[person.id] = card;
@@ -135,7 +136,26 @@ function fitToScreen() {
 
 document.getElementById('zoom-in').addEventListener('click', () => { scale = Math.min(scale * 1.2, 3); applyTransform(); });
 document.getElementById('zoom-out').addEventListener('click', () => { scale = Math.max(scale / 1.2, 0.2); applyTransform(); });
-document.getElementById('zoom-reset').addEventListener('click', fitToScreen);
+document.getElementById('zoom-reset').addEventListener('click', () => {
+  // Focus on the first root ancestor at a reasonable scale
+  const roots = familyData.people.filter(p => !familyData.families.some(f => f.children.includes(p.id)));
+  if (roots.length > 0) {
+    centerOn(roots[0].id, 0.8);
+  } else {
+    fitToScreen();
+  }
+});
+
+function centerOn(id, customScale = null) {
+  const pos = positions[id];
+  if (!pos) return;
+  const ww = wrap.clientWidth;
+  const wh = wrap.clientHeight;
+  if (customScale !== null) scale = customScale;
+  panX = ww / 2 - (pos.x + CARD_W / 2) * scale;
+  panY = wh / 2 - (pos.y + CARD_H / 2) * scale;
+  applyTransform();
+}
 
 // Mouse pan
 wrap.addEventListener('mousedown', e => {
@@ -285,16 +305,22 @@ document.getElementById('search').addEventListener('input', function () {
     Object.values(allCardEls).forEach(el => el.classList.remove('highlighted', 'dimmed'));
     return;
   }
+  let firstMatchId = null;
   Object.entries(allCardEls).forEach(([id, el]) => {
     const person = getPerson(Number(id));
     if (person.name.toLowerCase().includes(q)) {
       el.classList.add('highlighted');
       el.classList.remove('dimmed');
+      if (!firstMatchId) firstMatchId = Number(id);
     } else {
       el.classList.remove('highlighted');
       el.classList.add('dimmed');
     }
   });
+
+  if (firstMatchId) {
+    centerOn(firstMatchId, 0.9);
+  }
 });
 
 // ── Init ──

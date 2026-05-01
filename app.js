@@ -100,7 +100,7 @@ function drawCards() {
     card.innerHTML = `
       <div class="card-avatar">${getInitials(fullName)}</div>
       <div class="card-name">${fullName}</div>
-      <div class="card-age">${getAge(person.dob)}y</div>
+      <!-- <div class="card-age">${getAge(person.dob)}y</div> -->
       ${person.deceased ? `<div class="deceased-badge">✦ Late ${fullName}</div>` : ''}
     `;
 
@@ -239,7 +239,7 @@ function openPanel(id) {
   details.innerHTML = `
     <div class="panel-section-title">Details</div>
     <div class="panel-row"><span class="panel-row-label">Date of Birth</span><span class="panel-row-value">${formatDate(person.dob)}</span></div>
-    <div class="panel-row"><span class="panel-row-label">Age</span><span class="panel-row-value">${getAge(person.dob)} years</span></div>
+    <!-- <div class="panel-row"><span class="panel-row-label">Age</span><span class="panel-row-value">${getAge(person.dob)} years</span></div> -->
     <div class="panel-row"><span class="panel-row-label">Status</span><span class="panel-row-value">${person.deceased ? '✦ Deceased' : '● Alive'}</span></div>
   `;
   body.appendChild(details);
@@ -264,7 +264,7 @@ function openPanel(id) {
 function makeChip(person) {
   const chip = document.createElement('span');
   chip.className = `panel-relation-chip ${person.gender}`;
-  chip.innerHTML = `<span class="chip-dot"></span>${person.name} <span style="opacity:0.6;font-size:0.72rem">${getAge(person.dob)}y</span>`;
+  chip.innerHTML = `<span class="chip-dot"></span>${person.name} <!-- <span style="opacity:0.6;font-size:0.72rem">${getAge(person.dob)}y</span> -->`;
   chip.addEventListener('click', () => openPanel(person.id));
   return chip;
 }

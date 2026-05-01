@@ -9,14 +9,13 @@
   --female: #6b2d4e;
   --female-light: #f8edf3;
   --female-accent: #c4547a;
-  --deceased-opacity: 0.9;
   --text: #2a2420;
   --text-muted: #8a7e76;
   --gold: #c9a84c;
   --connector: #c5b9a8;
   --panel-width: 320px;
-  --card-w: 160px;
-  --card-h: 90px;
+  --card-w: 180px;
+  --card-h: 110px;
   --h-gap: 52px;
   --v-gap: 90px;
 }
@@ -180,11 +179,6 @@ svg#connectors {
   border-color: rgba(196, 84, 122, 0.3);
 }
 
-.person-card.deceased {
-  opacity: var(--deceased-opacity);
-  filter: grayscale(0.4);
-}
-
 .person-card.highlighted {
   border-color: var(--gold) !important;
   box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.25);
@@ -231,12 +225,6 @@ svg#connectors {
 .card-age {
   font-size: 0.75rem;
   color: var(--text-muted);
-}
-
-.deceased-badge {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  font-style: italic;
 }
 
 /* ── Side Panel ── */

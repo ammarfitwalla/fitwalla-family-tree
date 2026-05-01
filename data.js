@@ -42,7 +42,7 @@ const familyData = {
     { id: 23, name: "Moiz Fitwalla", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
     { id: 46, name: "Amrah", gender: "female", dob: "2015-01-01", deceased: false, photo: null },
     { id: 47, name: "Jozi", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
-    { id: 48, name: "Kafshah", gender: "female", dob: "2019-01-01", deceased: false, photo: null },
+    { id: 48, name: "Kabsha", gender: "female", dob: "2019-01-01", deceased: false, photo: null },
     { id: 24, name: "Ovaimir Fitwalla", gender: "male", dob: "1994-01-01", deceased: false, photo: null },
     { id: 45, name: "Saima Fitwalla", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
     { id: 51, name: "Zirwa Fitwalla", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
@@ -53,17 +53,23 @@ const familyData = {
     { id: 50, name: "Mohammad Sayyed", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
 
     // --- Family of Amatul-Salam Siddique ---
-    { id: 26, name: "Kaikashah Siddique", gender: "female", dob: "1990-01-01", deceased: false, photo: null },
-    { id: 53, name: "Partner of Kaikashah", gender: "male", dob: "1988-01-01", deceased: false, photo: null },
-    { id: 57, name: "Yusuf", gender: "female", dob: "2015-01-01", deceased: false, photo: null },
+    { id: 26, name: "Kehkashan Siddique", gender: "female", dob: "1990-01-01", deceased: false, photo: null },
+    { id: 53, name: "Siddiq", gender: "male", dob: "1988-01-01", deceased: false, photo: null },
+    { id: 108, name: "Nuha", gender: "female", dob: "2013-01-01", deceased: false, photo: null },
+    { id: 109, name: "Suha", gender: "female", dob: "2014-01-01", deceased: false, photo: null },
+    { id: 57, name: "Yusuf", gender: "male", dob: "2015-01-01", deceased: false, photo: null },
     { id: 27, name: "Shagufta Siddique", gender: "female", dob: "1992-01-01", deceased: false, photo: null },
-    { id: 54, name: "Partner of Shagufta", gender: "male", dob: "1990-01-01", deceased: false, photo: null },
-    { id: 58, name: "Natalia Siddique", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
+    { id: 54, name: "Abdul Rahim", gender: "male", dob: "1990-01-01", deceased: false, photo: null },
+    { id: 58, name: "Nataliya Siddique", gender: "female", dob: "2017-01-01", deceased: false, photo: null },
+    { id: 110, name: "Nazaha", gender: "female", dob: "2018-01-01", deceased: false, photo: null },
     { id: 59, name: "Areeb Siddique", gender: "male", dob: "2019-01-01", deceased: false, photo: null },
+    { id: 111, name: "Ashar", gender: "male", dob: "2021-01-01", deceased: false, photo: null },
     { id: 28, name: "Bushra Siddique", gender: "female", dob: "1994-01-01", deceased: false, photo: null },
-    { id: 55, name: "Partner of Bushra", gender: "male", dob: "1992-01-01", deceased: false, photo: null },
-    { id: 106, name: "Son of Bushra", gender: "male", dob: "2020-01-01", deceased: false, photo: null },
-    { id: 107, name: "Son of Bushra", gender: "male", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 55, name: "Hassan", gender: "male", dob: "1992-01-01", deceased: false, photo: null },
+    { id: 112, name: "Saffana", gender: "female", dob: "2018-01-01", deceased: false, photo: null },
+    { id: 106, name: "Hud", gender: "male", dob: "2020-01-01", deceased: false, photo: null },
+    { id: 107, name: "Nuh", gender: "male", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 113, name: "Lut", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
     { id: 29, name: "Abdul-Wadood Siddique", gender: "male", dob: "1996-01-01", deceased: false, photo: null },
     { id: 56, name: "Mariyam Siddique", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
     { id: 60, name: "Ishaal Siddique", gender: "female", dob: "2018-01-01", deceased: false, photo: null },
@@ -74,23 +80,26 @@ const familyData = {
     // --- Family of Amatul-Nafe Ansari ---
     { id: 30, name: "Saudah Ansari", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
     { id: 63, name: "Faris Ansari", gender: "male", dob: "1993-01-01", deceased: false, photo: null },
-    { id: 65, name: "Ous Ansari", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
-    { id: 66, name: "Daughter of Saudah", gender: "female", dob: "2020-01-01", deceased: false, photo: null },
-    { id: 67, name: "Daughter of Saudah", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
-    { id: 68, name: "Son of Saudah", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
+    { id: 65, name: "AWS", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
+    { id: 66, name: "Aniya", gender: "female", dob: "2020-01-01", deceased: false, photo: null },
+    { id: 67, name: "Zarash", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 68, name: "Vaniya", gender: "female", dob: "2024-01-01", deceased: false, photo: null },
     { id: 31, name: "Hamza Ansari", gender: "male", dob: "1997-01-01", deceased: false, photo: null },
     { id: 64, name: "Farheen Ansari", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
 
     // --- Family of Amatul-Wasay Shaikh ---
     { id: 32, name: "Atif Shaikh", gender: "male", dob: "1996-01-01", deceased: false, photo: null },
-    { id: 69, name: "Partner of Atif", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
-    { id: 73, name: "Son of Atif", gender: "male", dob: "2020-01-01", deceased: false, photo: null },
+    { id: 69, name: "Rushda", gender: "female", dob: "1998-01-01", deceased: false, photo: null },
+    { id: 73, name: "Asaj", gender: "male", dob: "2020-01-01", deceased: false, photo: null },
+    { id: 114, name: "Khadija", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
     { id: 33, name: "Owais Shaikh", gender: "male", dob: "1998-01-01", deceased: false, photo: null },
-    { id: 70, name: "Partner of Owais", gender: "female", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 74, name: "Son of Owais", gender: "male", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 70, name: "Nikhat", gender: "female", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 74, name: "Asim", gender: "male", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 115, name: "Adi", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
     { id: 34, name: "Muaz Shaikh", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
     { id: 71, name: "Alfiya Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 75, name: "Daughter of Muaz", gender: "female", dob: "2023-01-01", deceased: false, photo: null },
+    { id: 75, name: "1st daughter of Muaaz", gender: "female", dob: "2023-01-01", deceased: false, photo: null },
+    { id: 116, name: "2nd daughter of Muaaz", gender: "female", dob: "2025-01-01", deceased: false, photo: null },
     { id: 35, name: "Maria Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
     { id: 72, name: "Partner of Maria", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
     { id: 76, name: "Son of Maria", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
@@ -107,13 +116,13 @@ const familyData = {
     { id: 100, name: "Sheza Ansari", gender: "female", dob: "2026-01-01", deceased: false, photo: null },
     { id: 81, name: "Tasneem Ansari", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
     { id: 82, name: "Wasim", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 101, name: "Maria", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
-    { id: 102, name: "Daughter of Tasneem", gender: "female", dob: "2024-01-01", deceased: false, photo: null },
-    { id: 103, name: "Son of Tasneem", gender: "male", dob: "2026-01-01", deceased: false, photo: null },
+    { id: 101, name: "Masira", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
+    { id: 102, name: "Mariya", gender: "female", dob: "2024-01-01", deceased: false, photo: null },
+    { id: 103, name: "Ibrahim", gender: "male", dob: "2026-01-01", deceased: false, photo: null },
     { id: 83, name: "Nishat Ansari", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
     { id: 84, name: "Raahil", gender: "male", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 104, name: "Daughter of Nishat", gender: "female", dob: "2024-01-01", deceased: false, photo: null },
-    { id: 105, name: "Daughter of Nishat", gender: "female", dob: "2026-01-01", deceased: false, photo: null },
+    { id: 104, name: "Minahil", gender: "female", dob: "2024-01-01", deceased: false, photo: null },
+    { id: 105, name: "Sherleez", gender: "female", dob: "2026-01-01", deceased: false, photo: null },
     { id: 85, name: "Owais Ansari", gender: "male", dob: "2006-01-01", deceased: false, photo: null },
 
     // --- Family of Ilyas Fitwalla ---
@@ -129,7 +138,7 @@ const familyData = {
     // --- Family of Amatul-Mughni Fitwalla ---
     { id: 90, name: "Fawziyah Fitwalla", gender: "female", dob: "1993-01-01", deceased: false, photo: null },
     { id: 91, name: "Wasim", gender: "male", dob: "1991-01-01", deceased: false, photo: null },
-    { id: 92, name: "Hazeka", gender: "female", dob: "2018-01-01", deceased: false, photo: null },
+    { id: 92, name: "Haziqah", gender: "female", dob: "2018-01-01", deceased: false, photo: null },
     { id: 93, name: "Durrah Fitwalla", gender: "female", dob: "1995-01-01", deceased: false, photo: null },
     { id: 94, name: "Zeeshan Shaikh", gender: "male", dob: "1993-01-01", deceased: false, photo: null },
     { id: 95, name: "Ali Shaikh", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
@@ -154,14 +163,14 @@ const familyData = {
     { id: "c13", person1: 36, person2: 37, married: true }, // Ammar & Samreen
     { id: "c15", person1: 23, person2: null, married: false }, // Moiz (Single Parent)
     { id: "c16", person1: 24, person2: 45, married: true },  // Ovaimir & Saima
-    { id: "c17", person1: 26, person2: 53, married: true }, // Kaikashah
-    { id: "c18", person1: 27, person2: 54, married: true }, // Shagufta
-    { id: "c19", person1: 28, person2: 55, married: true }, // Bushra
+    { id: "c17", person1: 26, person2: 53, married: true }, // Kehkashan & Siddiq
+    { id: "c18", person1: 27, person2: 54, married: true }, // Shagufta & Abdul Rahim
+    { id: "c19", person1: 28, person2: 55, married: true }, // Bushra & Hassan
     { id: "c20", person1: 29, person2: 56, married: true }, // Abdul-Wadood
     { id: "c21", person1: 30, person2: 63, married: true }, // Saudah & Faris
     { id: "c22", person1: 31, person2: 64, married: true }, // Hamza & Farheen
-    { id: "c23", person1: 32, person2: 69, married: true }, // Atif
-    { id: "c24", person1: 33, person2: 70, married: true }, // Owais
+    { id: "c23", person1: 32, person2: 69, married: true }, // Atif & Rushda
+    { id: "c24", person1: 33, person2: 70, married: true }, // Owais & Nikhat
     { id: "c25", person1: 34, person2: 71, married: true }, // Muaz
     { id: "c26", person1: 35, person2: 72, married: true }, // Maria
     { id: "c27", person1: 78, person2: 77, married: true }, // Abdul Rashid & Amatul Basit
@@ -185,15 +194,15 @@ const familyData = {
     { parentCouple: "c12", children: [49, 50] },    // Amatul-Bar's kids
     { parentCouple: "c16", children: [51, 52] },    // Saima's kids
     { parentCouple: "c6", children: [26, 27, 28, 29] },
-    { parentCouple: "c17", children: [57] }, // Kaikashah's kids
-    { parentCouple: "c18", children: [58, 59] }, // Shagufta's kids
+    { parentCouple: "c17", children: [108, 109, 57] }, // Kehkashan's kids
+    { parentCouple: "c18", children: [58, 110, 59, 111] }, // Shagufta's kids
     { parentCouple: "c20", children: [60, 61, 62, 87] }, // Abdul-Wadood's kids
     { parentCouple: "c7", children: [30, 31] }, // Amatul-nafe's kids
     { parentCouple: "c21", children: [65, 66, 67, 68] }, // Saudah's kids
     { parentCouple: "c8", children: [32, 33, 34, 35] }, // Amatul-Waasay's kids
-    { parentCouple: "c23", children: [73] }, // Atif's kids
-    { parentCouple: "c24", children: [74] }, // Owais's kids
-    { parentCouple: "c25", children: [75] }, // Muaz's kids
+    { parentCouple: "c23", children: [73, 114] }, // Atif's kids
+    { parentCouple: "c24", children: [74, 115] }, // Owais's kids
+    { parentCouple: "c25", children: [75, 116] }, // Muaz's kids
     { parentCouple: "c26", children: [76] }, // Maria's kids
     { parentCouple: "c9", children: [36] }, // Ishaque's kids
     { parentCouple: "c10", children: [38, 39, 40] }, // Ilyas's kids
@@ -203,7 +212,7 @@ const familyData = {
     { parentCouple: "c32", children: [90, 93, 98] }, // Amatul-Mughni's kids
     { parentCouple: "c33", children: [92] },          // Fawziyah's kids
     { parentCouple: "c34", children: [95, 96, 97] },   // Durrah's kids
-    { parentCouple: "c19", children: [106, 107] },    // Bushra's kids
+    { parentCouple: "c19", children: [112, 106, 107, 113] },    // Bushra's kids
     { parentCouple: "c28", children: [99, 100] },     // Souvaid's kids
     { parentCouple: "c29", children: [101, 102, 103] }, // Tasneem's kids
     { parentCouple: "c30", children: [104, 105] }     // Nishat's kids

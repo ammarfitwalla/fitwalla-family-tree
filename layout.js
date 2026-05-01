@@ -2,7 +2,7 @@
 // Computes (x, y) positions for every person card using a
 // bottom-up subtree sizing + top-down centering algorithm.
 
-const CARD_W = 160, CARD_H = 90, H_GAP = 36, V_GAP = 90, COUPLE_GAP = 12;
+const CARD_W = 180, CARD_H = 110, H_GAP = 36, V_GAP = 90, COUPLE_GAP = 12;
 const COUPLE_W = CARD_W * 2 + COUPLE_GAP;
 
 function buildLayout() {

@@ -91,7 +91,7 @@ function drawCards() {
     if (!pos) continue;
 
     const card = document.createElement('div');
-    card.className = `person-card ${person.gender}${person.deceased ? ' deceased' : ''}`;
+    card.className = `person-card ${person.gender}`;
     card.style.left = pos.x + 'px';
     card.style.top = pos.y + 'px';
     card.dataset.id = person.id;
@@ -101,7 +101,6 @@ function drawCards() {
       <div class="card-avatar">${getInitials(fullName)}</div>
       <div class="card-name">${fullName}</div>
       <!-- <div class="card-age">${getAge(person.dob)}y</div> -->
-      ${person.deceased ? `<div class="deceased-badge">✦ Late ${fullName}</div>` : ''}
     `;
 
     card.addEventListener('click', (e) => {
@@ -240,7 +239,6 @@ function openPanel(id) {
     <div class="panel-section-title">Details</div>
     <div class="panel-row"><span class="panel-row-label">Date of Birth</span><span class="panel-row-value">${formatDate(person.dob)}</span></div>
     <!-- <div class="panel-row"><span class="panel-row-label">Age</span><span class="panel-row-value">${getAge(person.dob)} years</span></div> -->
-    <div class="panel-row"><span class="panel-row-label">Status</span><span class="panel-row-value">${person.deceased ? '✦ Deceased' : '● Alive'}</span></div>
   `;
   body.appendChild(details);
 

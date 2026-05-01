@@ -4,15 +4,15 @@
   --surface: #ffffff;
   --border: #e8e0d4;
   --male: #1a3a5c;
-  --male-light: #e8f0f8;
+  --male-light: #dbe8f4;
   --male-accent: #2d6a9f;
   --female: #6b2d4e;
-  --female-light: #f8edf3;
+  --female-light: #f2e1eb;
   --female-accent: #c4547a;
-  --text: #2a2420;
-  --text-muted: #8a7e76;
-  --gold: #c9a84c;
-  --connector: #c5b9a8;
+  --text: #111111;
+  --text-muted: #444444;
+  --gold: #b08d30;
+  --connector: #908578;
   --panel-width: 320px;
   --card-w: 180px;
   --card-h: 110px;
@@ -212,7 +212,7 @@ svg#connectors {
 
 .card-name {
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 550;
   line-height: 1.2;
   color: var(--text);
   max-width: 100%;

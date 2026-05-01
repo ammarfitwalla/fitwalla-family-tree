@@ -98,8 +98,8 @@ const familyData = {
     { id: 115, name: "Adi", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
     { id: 34, name: "Muaz Shaikh", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
     { id: 71, name: "Alfiya Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 75, name: "1st daughter of Muaaz", gender: "female", dob: "2023-01-01", deceased: false, photo: null },
-    { id: 116, name: "2nd daughter of Muaaz", gender: "female", dob: "2025-01-01", deceased: false, photo: null },
+    { id: 75, name: "Aisha", gender: "female", dob: "2023-01-01", deceased: false, photo: null },
+    { id: 116, name: "Fatima", gender: "female", dob: "2025-01-01", deceased: false, photo: null },
     { id: 35, name: "Maria Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
     { id: 72, name: "Partner of Maria", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
     { id: 76, name: "Son of Maria", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
@@ -144,7 +144,8 @@ const familyData = {
     { id: 95, name: "Ali Shaikh", gender: "male", dob: "2018-01-01", deceased: false, photo: null },
     { id: 96, name: "Adi Shaikh", gender: "male", dob: "2020-01-01", deceased: false, photo: null },
     { id: 97, name: "Affaf Shaikh", gender: "female", dob: "2022-01-01", deceased: false, photo: null },
-    { id: 98, name: "Azzah Fitwalla", gender: "female", dob: "1997-01-01", deceased: false, photo: null }
+    { id: 98, name: "Azzah Fitwalla", gender: "female", dob: "1997-01-01", deceased: false, photo: null },
+    { id: 117, name: "Haala", gender: "female", dob: "2024-01-01", deceased: false, photo: null }
   ],
 
   couples: [
@@ -181,7 +182,8 @@ const familyData = {
     { id: "c32", person1: 88, person2: 89, married: true }, // Abdul Rehman & Amatul-Mughni
     { id: "c33", person1: 90, person2: 91, married: true }, // Fawziyah & Wasim
     { id: "c34", person1: 93, person2: 94, married: true }, // Durrah & Zeeshan
-    { id: "c35", person1: 98, person2: null, married: false }  // Azzah (single)
+    { id: "c35", person1: 98, person2: null, married: false }, // Azzah (single)
+    { id: "c36", person1: 47, person2: null, married: false }  // Jozi (single)
   ],
 
   families: [
@@ -215,6 +217,7 @@ const familyData = {
     { parentCouple: "c19", children: [112, 106, 107, 113] },    // Bushra's kids
     { parentCouple: "c28", children: [99, 100] },     // Souvaid's kids
     { parentCouple: "c29", children: [101, 102, 103] }, // Tasneem's kids
-    { parentCouple: "c30", children: [104, 105] }     // Nishat's kids
+    { parentCouple: "c30", children: [104, 105] },     // Nishat's kids
+    { parentCouple: "c36", children: [117] }           // Jozi's kids
   ]
 };

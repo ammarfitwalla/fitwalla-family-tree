@@ -132,7 +132,7 @@ const familyData = {
 
     // --- Family of Idrees Fitwalla ---
     { id: 41, name: "Juana Fitwalla", gender: "female", dob: "2004-01-01", deceased: false, photo: null },
-    { id: 42, name: "Tarfiya Fitwalla", gender: "male", dob: "2006-01-01", deceased: false, photo: null },
+    { id: 42, name: "Tarfiya Fitwalla", gender: "female", dob: "2006-01-01", deceased: false, photo: null },
     { id: 43, name: "Shees Fitwalla", gender: "male", dob: "2008-01-01", deceased: false, photo: null },
 
     // --- Family of Amatul-Mughni Fitwalla ---

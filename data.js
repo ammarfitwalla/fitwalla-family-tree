@@ -101,8 +101,8 @@ const familyData = {
     { id: 75, name: "Aisha", gender: "female", dob: "2023-01-01", deceased: false, photo: null },
     { id: 116, name: "Fatima", gender: "female", dob: "2025-01-01", deceased: false, photo: null },
     { id: 35, name: "Maria Shaikh", gender: "female", dob: "2002-01-01", deceased: false, photo: null },
-    { id: 72, name: "Partner of Maria", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
-    { id: 76, name: "Son of Maria", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
+    { id: 72, name: "Aaqil", gender: "male", dob: "2000-01-01", deceased: false, photo: null },
+    { id: 76, name: Abdul Kabir", gender: "male", dob: "2024-01-01", deceased: false, photo: null },
 
     // --- Family of Ishaque Fitwalla ---
     { id: 36, name: "Ammar Fitwalla", gender: "male", dob: "1995-04-17", deceased: false, photo: null },

@@ -32,7 +32,7 @@ const familyData = {
     { id: 77, name: "Amatul Basit Ansari", gender: "female", dob: "1978-01-01", deceased: false, photo: null },
     { id: 78, name: "Abdul Rashid Ansari", gender: "male", dob: "1975-01-01", deceased: false, photo: null },
     { id: 19, name: "Ilyas Fitwalla", gender: "male", dob: "1978-05-01", deceased: false, photo: null },
-    { id: 20, name: "Farzana Fitwalla", gender: "female", dob: "1980-01-01", deceased: false, photo: null },
+    { id: 20, name: "Farhana Fitwalla", gender: "female", dob: "1980-01-01", deceased: false, photo: null },
     { id: 21, name: "Idrees Fitwalla", gender: "male", dob: "1980-05-01", deceased: false, photo: null },
     { id: 22, name: "Umaira Fitwalla", gender: "female", dob: "1982-01-01", deceased: false, photo: null },
 

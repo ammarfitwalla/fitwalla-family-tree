@@ -166,19 +166,22 @@ function startInertia() {
 
 function applyTransform() {
   canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+  updateScrollIndicator();
 }
 
 function fitToScreen() {
+  stopInertia();
   let maxX = 0, maxY = 0;
   for (const pos of Object.values(positions)) {
     maxX = Math.max(maxX, pos.x + CARD_W);
     maxY = Math.max(maxY, pos.y + CARD_H);
   }
   const ww = wrap.clientWidth, wh = wrap.clientHeight;
-  scale = Math.min((ww - 80) / maxX, (wh - 80) / maxY, 1);
-  panX = (ww - maxX * scale) / 2;
-  panY = 40;
-  applyTransform();
+  const targetScale = Math.min((ww - 80) / maxX, (wh - 80) / maxY, 1);
+  const targetX = (ww - maxX * targetScale) / 2;
+  const targetY = 40;
+  
+  animateTo(targetX, targetY, targetScale);
 }
 
 document.getElementById('zoom-in').addEventListener('click', () => { stopInertia(); scale = Math.min(scale * 1.2, 3); applyTransform(); });
@@ -199,10 +202,64 @@ function centerOn(id, customScale = null) {
   if (!pos) return;
   const ww = wrap.clientWidth;
   const wh = wrap.clientHeight;
-  if (customScale !== null) scale = customScale;
-  panX = ww / 2 - (pos.x + CARD_W / 2) * scale;
-  panY = wh / 2 - (pos.y + CARD_H / 2) * scale;
-  applyTransform();
+  const targetScale = customScale !== null ? customScale : scale;
+  const targetX = ww / 2 - (pos.x + CARD_W / 2) * targetScale;
+  const targetY = wh / 2 - (pos.y + CARD_H / 2) * targetScale;
+  
+  animateTo(targetX, targetY, targetScale);
+}
+
+let animationFrame = null;
+function animateTo(targetX, targetY, targetScale) {
+  if (animationFrame) cancelAnimationFrame(animationFrame);
+  
+  const startX = panX, startY = panY, startScale = scale;
+  const duration = 500;
+  const startTime = performance.now();
+
+  function step(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+
+    panX = startX + (targetX - startX) * ease;
+    panY = startY + (targetY - startY) * ease;
+    scale = startScale + (targetScale - startScale) * ease;
+    
+    applyTransform();
+    if (progress < 1) {
+      animationFrame = requestAnimationFrame(step);
+    } else {
+      animationFrame = null;
+    }
+  }
+  animationFrame = requestAnimationFrame(step);
+}
+
+function updateScrollIndicator() {
+  const indicator = document.getElementById('scroll-indicator');
+  if (!indicator) return;
+  
+  let minX = Infinity, maxX = -Infinity;
+  for (const pos of Object.values(positions)) {
+    minX = Math.min(minX, pos.x);
+    maxX = Math.max(maxX, pos.x + CARD_W);
+  }
+  
+  const treeWidth = maxX - minX;
+  const ww = wrap.clientWidth;
+  const visibleWidth = ww / scale;
+  
+  // Percent of the tree that is visible
+  const ratio = Math.min(visibleWidth / treeWidth, 1);
+  const bar = indicator.querySelector('.indicator-bar');
+  bar.style.width = (ratio * 100) + '%';
+  
+  // Position of the bar
+  const currentLeft = -panX / scale;
+  const scrollRatio = (currentLeft - minX) / (treeWidth - visibleWidth);
+  const clampedScrollRatio = Math.max(0, Math.min(1, scrollRatio));
+  bar.style.left = (clampedScrollRatio * (1 - ratio) * 100) + '%';
 }
 
 // ── Mouse pan ──

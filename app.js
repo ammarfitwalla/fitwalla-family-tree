@@ -147,6 +147,7 @@ const MIN_VEL = 0.4;        // px/frame below which inertia stops
 
 function stopInertia() {
   if (inertiaFrame) { cancelAnimationFrame(inertiaFrame); inertiaFrame = null; }
+  if (animationFrame) { cancelAnimationFrame(animationFrame); animationFrame = null; }
   velX = 0; velY = 0;
 }
 
@@ -318,8 +319,9 @@ wrap.addEventListener('touchstart', e => {
     isPanning = false;
     hasDragged = true;
     lastTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
-    lastPinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-    lastPinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+    const rect = wrap.getBoundingClientRect();
+    lastPinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+    lastPinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
   }
 }, { passive: false });
 
@@ -336,17 +338,23 @@ wrap.addEventListener('touchmove', e => {
     panY = startPanY + (e.touches[0].clientY - startY);
     applyTransform();
   }
-  if (e.touches.length === 2 && lastTouchDist) {
+  if (e.touches.length === 2 && lastTouchDist > 5) {
     const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
     const ratio = dist / lastTouchDist;
     const newScale = Math.min(Math.max(scale * ratio, 0.2), 3);
+    
     const rect = wrap.getBoundingClientRect();
     const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
     const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
-    panX = midX - (midX - panX) * (newScale / scale);
-    panY = midY - (midY - panY) * (newScale / scale);
+
+    // Pan based on both the zoom and the movement of the pinch midpoint
+    panX = midX - (lastPinchMidX - panX) * (newScale / scale);
+    panY = midY - (lastPinchMidY - panY) * (newScale / scale);
+    
     scale = newScale;
     lastTouchDist = dist;
+    lastPinchMidX = midX;
+    lastPinchMidY = midY;
     applyTransform();
   }
 }, { passive: false });

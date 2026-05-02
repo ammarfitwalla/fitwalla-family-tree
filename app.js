@@ -138,6 +138,32 @@ function drawCards() {
 
 let isPanning = false, startX, startY, startPanX, startPanY, hasDragged = false;
 
+// ── Inertia state ──
+let velX = 0, velY = 0;
+let lastMoveX = 0, lastMoveY = 0, lastMoveTime = 0;
+let inertiaFrame = null;
+const FRICTION = 0.92;      // multiplied each frame — higher = slides longer
+const MIN_VEL = 0.4;        // px/frame below which inertia stops
+
+function stopInertia() {
+  if (inertiaFrame) { cancelAnimationFrame(inertiaFrame); inertiaFrame = null; }
+  velX = 0; velY = 0;
+}
+
+function startInertia() {
+  if (inertiaFrame) cancelAnimationFrame(inertiaFrame);
+  function step() {
+    velX *= FRICTION;
+    velY *= FRICTION;
+    if (Math.abs(velX) < MIN_VEL && Math.abs(velY) < MIN_VEL) { inertiaFrame = null; return; }
+    panX += velX;
+    panY += velY;
+    applyTransform();
+    inertiaFrame = requestAnimationFrame(step);
+  }
+  inertiaFrame = requestAnimationFrame(step);
+}
+
 function applyTransform() {
   canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
 }
@@ -155,10 +181,10 @@ function fitToScreen() {
   applyTransform();
 }
 
-document.getElementById('zoom-in').addEventListener('click', () => { scale = Math.min(scale * 1.2, 3); applyTransform(); });
-document.getElementById('zoom-out').addEventListener('click', () => { scale = Math.max(scale / 1.2, 0.2); applyTransform(); });
+document.getElementById('zoom-in').addEventListener('click', () => { stopInertia(); scale = Math.min(scale * 1.2, 3); applyTransform(); });
+document.getElementById('zoom-out').addEventListener('click', () => { stopInertia(); scale = Math.max(scale / 1.2, 0.2); applyTransform(); });
 document.getElementById('zoom-reset').addEventListener('click', () => {
-  // Focus on the first root ancestor at a reasonable scale
+  stopInertia();
   const roots = familyData.people.filter(p => !familyData.families.some(f => f.children.includes(p.id)));
   if (roots.length > 0) {
     centerOn(roots[0].id, 0.8);
@@ -168,6 +194,7 @@ document.getElementById('zoom-reset').addEventListener('click', () => {
 });
 
 function centerOn(id, customScale = null) {
+  stopInertia();
   const pos = positions[id];
   if (!pos) return;
   const ww = wrap.clientWidth;
@@ -178,46 +205,76 @@ function centerOn(id, customScale = null) {
   applyTransform();
 }
 
-// Mouse pan
+// ── Mouse pan ──
 wrap.addEventListener('mousedown', e => {
+  stopInertia();
   isPanning = true;
   hasDragged = false;
   startX = e.clientX; startY = e.clientY;
   startPanX = panX; startPanY = panY;
+  lastMoveX = e.clientX; lastMoveY = e.clientY; lastMoveTime = performance.now();
   wrap.classList.add('grabbing');
 });
 window.addEventListener('mousemove', e => {
   if (!isPanning) return;
   if (Math.hypot(e.clientX - startX, e.clientY - startY) > 5) hasDragged = true;
+  const now = performance.now();
+  const dt = now - lastMoveTime || 1;
+  velX = (e.clientX - lastMoveX) / dt * 16;
+  velY = (e.clientY - lastMoveY) / dt * 16;
+  lastMoveX = e.clientX; lastMoveY = e.clientY; lastMoveTime = now;
   panX = startPanX + (e.clientX - startX);
   panY = startPanY + (e.clientY - startY);
   applyTransform();
 });
-window.addEventListener('mouseup', () => { isPanning = false; wrap.classList.remove('grabbing'); setTimeout(() => hasDragged = false, 50); });
+window.addEventListener('mouseup', () => {
+  if (isPanning) startInertia();
+  isPanning = false;
+  wrap.classList.remove('grabbing');
+  setTimeout(() => hasDragged = false, 50);
+});
 
-// Touch pan & pinch zoom
+// ── Touch pan & pinch zoom ──
 let lastTouchDist = null, lastPinchMidX = 0, lastPinchMidY = 0;
+let lastTapTime = 0; // for double-tap detection
+
 wrap.addEventListener('touchstart', e => {
+  stopInertia();
   if (e.touches.length === 1) {
+    // Double-tap to fit screen
+    const now = Date.now();
+    if (now - lastTapTime < 300) {
+      e.preventDefault();
+      fitToScreen();
+      lastTapTime = 0;
+      return;
+    }
+    lastTapTime = now;
+
     isPanning = true;
     hasDragged = false;
     startX = e.touches[0].clientX; startY = e.touches[0].clientY;
     startPanX = panX; startPanY = panY;
+    lastMoveX = e.touches[0].clientX; lastMoveY = e.touches[0].clientY; lastMoveTime = performance.now();
   }
   if (e.touches.length === 2) {
     isPanning = false;
     hasDragged = true;
     lastTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
-    // Store the initial pinch midpoint for centered zoom
     lastPinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
     lastPinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
   }
 }, { passive: false });
 
 wrap.addEventListener('touchmove', e => {
-  if (e.cancelable) e.preventDefault(); // Prevents native pull-to-refresh and scroll
+  if (e.cancelable) e.preventDefault();
   if (e.touches.length === 1 && isPanning) {
     if (Math.hypot(e.touches[0].clientX - startX, e.touches[0].clientY - startY) > 5) hasDragged = true;
+    const now = performance.now();
+    const dt = now - lastMoveTime || 1;
+    velX = (e.touches[0].clientX - lastMoveX) / dt * 16;
+    velY = (e.touches[0].clientY - lastMoveY) / dt * 16;
+    lastMoveX = e.touches[0].clientX; lastMoveY = e.touches[0].clientY; lastMoveTime = now;
     panX = startPanX + (e.touches[0].clientX - startX);
     panY = startPanY + (e.touches[0].clientY - startY);
     applyTransform();
@@ -226,12 +283,9 @@ wrap.addEventListener('touchmove', e => {
     const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
     const ratio = dist / lastTouchDist;
     const newScale = Math.min(Math.max(scale * ratio, 0.2), 3);
-
-    // Zoom centered on the current pinch midpoint
     const rect = wrap.getBoundingClientRect();
     const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
     const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
-
     panX = midX - (midX - panX) * (newScale / scale);
     panY = midY - (midY - panY) * (newScale / scale);
     scale = newScale;
@@ -240,7 +294,12 @@ wrap.addEventListener('touchmove', e => {
   }
 }, { passive: false });
 
-wrap.addEventListener('touchend', () => { isPanning = false; lastTouchDist = null; setTimeout(() => hasDragged = false, 50); });
+wrap.addEventListener('touchend', e => {
+  if (isPanning) startInertia();
+  isPanning = false;
+  lastTouchDist = null;
+  setTimeout(() => hasDragged = false, 50);
+});
 
 // Wheel zoom (centered on cursor)
 wrap.addEventListener('wheel', e => {

@@ -8,11 +8,23 @@ let scale = 1, panX = 0, panY = 0;
 let selectedId = null;
 let allCardEls = {};
 
-const { positions, genY, genMap } = buildLayout();
-
-// ── Rendering ──
+let positions, genY;
 
 function renderTree() {
+  const layout = buildLayout();
+  positions = layout.positions;
+  genY = layout.genY;
+
+  const totalPeople = familyData.people.length;
+  const totalGens = Object.keys(genY).length;
+  const statsEl = document.getElementById('header-stats');
+  if (statsEl) {
+    statsEl.innerHTML = `
+      <span class="stat-item">Members: <b>${totalPeople}</b></span>
+      <span class="stat-item">Generations: <b>${totalGens}</b></span>
+    `;
+  }
+
   drawConnectors();
   drawCards();
   fitToScreen();
@@ -83,8 +95,17 @@ function drawConnectors() {
 }
 
 function drawCards() {
-  canvas.querySelectorAll('.person-card').forEach(e => e.remove());
+  canvas.querySelectorAll('.person-card, .gen-label').forEach(e => e.remove());
   allCardEls = {};
+  
+  // Draw Generation Labels
+  Object.entries(genY).forEach(([gen, y]) => {
+    const lbl = document.createElement('div');
+    lbl.className = 'gen-label';
+    lbl.style.top = (y + CARD_H / 2) + 'px';
+    lbl.textContent = `Gen ${Number(gen) + 1}`;
+    canvas.appendChild(lbl);
+  });
 
   for (const person of familyData.people) {
     const pos = positions[person.id];
@@ -175,7 +196,7 @@ window.addEventListener('mousemove', e => {
 window.addEventListener('mouseup', () => { isPanning = false; wrap.classList.remove('grabbing'); setTimeout(() => hasDragged = false, 50); });
 
 // Touch pan & pinch zoom
-let lastTouchDist = null;
+let lastTouchDist = null, lastPinchMidX = 0, lastPinchMidY = 0;
 wrap.addEventListener('touchstart', e => {
   if (e.touches.length === 1) {
     isPanning = true;
@@ -187,6 +208,9 @@ wrap.addEventListener('touchstart', e => {
     isPanning = false;
     hasDragged = true;
     lastTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    // Store the initial pinch midpoint for centered zoom
+    lastPinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+    lastPinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
   }
 }, { passive: false });
 
@@ -200,7 +224,17 @@ wrap.addEventListener('touchmove', e => {
   }
   if (e.touches.length === 2 && lastTouchDist) {
     const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
-    scale = Math.min(Math.max(scale * (dist / lastTouchDist), 0.2), 3);
+    const ratio = dist / lastTouchDist;
+    const newScale = Math.min(Math.max(scale * ratio, 0.2), 3);
+
+    // Zoom centered on the current pinch midpoint
+    const rect = wrap.getBoundingClientRect();
+    const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+    const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
+
+    panX = midX - (midX - panX) * (newScale / scale);
+    panY = midY - (midY - panY) * (newScale / scale);
+    scale = newScale;
     lastTouchDist = dist;
     applyTransform();
   }

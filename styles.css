@@ -98,6 +98,52 @@ header {
   gap: 6px;
 }
 
+.header-stats {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .header-stats { display: none; }
+}
+
+.stat-item b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Generation Labels ── */
+.gen-label {
+  position: absolute;
+  right: calc(100% + 20px);
+  white-space: nowrap;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.gen-label::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--connector);
+  opacity: 0.5;
+}
+
 .zoom-btn {
   width: 32px;
   height: 32px;
